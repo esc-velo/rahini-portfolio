@@ -4,12 +4,12 @@ import { useState } from "react";
 
 import IntroScreen from "@/components/intro/intro-screen";
 
-import Hero from "@/components/sections/hero";
-import AboutMe from "@/components/sections/about-me";
-import Projects from "@/components/sections/projects";
-import Skills from "@/components/sections/skills";
-import Experience from "@/components/sections/experience";
-import Contact from "@/components/sections/contact";
+import Hero from "@/components/sections/Hero";
+import AboutMe from "@/components/sections/AboutMe";
+import Projects from "@/components/sections/Projects";
+import Skills from "@/components/sections/Skills";
+import Experience from "@/components/sections/Experience";
+import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   const [entered, setEntered] = useState(false);

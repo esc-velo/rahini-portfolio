@@ -1,12 +1,12 @@
 "use client"
-import { motion } from "framer-motion"
-import { ExternalLink, Github } from "lucide-react"
+import { motion, type Variants } from "framer-motion"
+import { ExternalLink, GitBranch } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { portfolioData } from "@/data/portfolio"
 export default function Projects() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -15,7 +15,7 @@ export default function Projects() {
       },
     },
   }
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { y: 30, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } },
   }
@@ -88,7 +88,7 @@ export default function Projects() {
                         rel="noopener noreferrer"
                         className={cn(buttonVariants({ size: "sm", variant: "outline" }), "flex items-center gap-1.5")}
                       >
-                        <Github className="w-3.5 h-3.5" />
+                        <GitBranch className="w-3.5 h-3.5" />
                         Source Code
                       </a>
                     )}

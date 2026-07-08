@@ -1,6 +1,7 @@
 
 "use client"
 import Image from "next/image"
+import type { Transition } from "framer-motion";
 import React, {
   forwardRef,
   useCallback,
@@ -23,22 +24,22 @@ import { cn } from "@/lib/utils"
 import { Button, ButtonProps } from "@/components/ui/button"
 
 
-const DRAG_CONSTRAINTS = { left: 0, right: 155 }
+const DRAG_CONSTRAINTS = { left: 0, right: 235 }
 const DRAG_THRESHOLD = 0.9
 
 const BUTTON_STATES = {
-  initial: { width: "12rem" },
-  completed: { width: "8rem" },
+  initial: { width: "17rem" },
+  completed: { width: "10rem" },
 }
 
-const ANIMATION_CONFIG = {
+const ANIMATION_CONFIG: { spring: Transition } = {
   spring: {
     type: "spring",
     stiffness: 400,
     damping: 40,
     mass: 0.8,
   },
-}
+};
 
 type StatusIconProps = {
   status: string
@@ -137,7 +138,7 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
       <motion.div
         animate={completed ? BUTTON_STATES.completed : BUTTON_STATES.initial}
         transition={ANIMATION_CONFIG.spring}
-        className="shadow-button-inset dark:shadow-button-inset-dark relative flex h-9 items-center justify-center rounded-full bg-gray-100"
+        className="shadow-button-inset dark:shadow-button-inset-dark relative flex h-10 items-center justify-center rounded-full bg-gray-100"
       >
         {!completed && (
           <motion.div
@@ -175,8 +176,8 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
                     <Image
                         src="/avatar-photo.png"
                         alt="Rahini"
-                        width={40}
-                        height={40}
+                        width={60}
+                        height={60}
                         draggable={false}
                         className="h-full w-full rounded-full object-cover"
                         priority

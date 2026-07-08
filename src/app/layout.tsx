@@ -15,8 +15,9 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: "Alex Carter | Full Stack & AI Engineer Portfolio",
-  description: "Explore the professional developer portfolio of Alex Carter, featuring premium designs, SaaS dashboards, and AI writing studios built with Next.js & Tailwind CSS.",
+  title: "Rahini Raneru | AI & Full-Stack Developer",
+  description:
+    "Portfolio of Rahini Raneru, a Computer Science student building AI systems, machine learning projects, full-stack applications, and intelligent automation workflows.",
 }
 
 export default function RootLayout({
