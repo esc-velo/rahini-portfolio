@@ -83,18 +83,24 @@ const useButtonStatus = (resolveTo: "success" | "error") => {
   return { status, handleSubmit }
 }
 
-type SlideButtonProps = ButtonProps & {
+interface SlideButtonProps extends ButtonProps {
   onComplete: () => void;
-};
+}
 
 const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
     
-  ({ className, ...props }, ref) => {
+(
+    {
+      className,
+      onComplete,
+      ...buttonProps
+    },
+    ref
+  ) => {
     const [isDragging, setIsDragging] = useState(false)
     const [completed, setCompleted] = useState(false)
     const dragHandleRef = useRef<HTMLDivElement | null>(null)
     const { status, handleSubmit } = useButtonStatus("success")
-    const onComplete = props.onComplete;
 
     const dragX = useMotionValue(0)
     const springX = useSpring(dragX, ANIMATION_CONFIG.spring)
@@ -165,7 +171,7 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
                 <Button
                     ref={ref}
                     disabled={status === "loading"}
-                    {...props}
+                    {...buttonProps}
                     size="icon"
                     className={cn(
                         "shadow-button rounded-full overflow-hidden p-0 drop-shadow-xl",
@@ -198,7 +204,7 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
               <Button
                 ref={ref}
                 disabled={status === "loading"}
-                {...props}
+                {...buttonProps}
                 className={cn(
                   "size-full rounded-full transition-all duration-300",
                   className

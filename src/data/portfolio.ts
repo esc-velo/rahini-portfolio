@@ -7,13 +7,13 @@ export interface SkillCategory {
   skills: Skill[]
 }
 export interface Project {
+  id: string
   title: string
+  subtitle: string
   description: string
-  image: string
-  tags: string[]
-  liveUrl?: string
-  githubUrl?: string
-  featured?: boolean
+  tech: string[]
+  github?: string
+  live?: string
 }
 export interface Experience {
   role: string
@@ -151,7 +151,7 @@ export const portfolioData: PortfolioData = {
     {
       role: "Webmaster",
       company: "IEEE Computational Intelligence Society, MUJ",
-      period: "2025 - Present",
+      period: "June 2025 - April 2026",
       description: [
         "Maintain and improve the chapter website using HTML, CSS, TypeScript and JavaScript.",
         "Improved website accessibility and responsive layouts.",
@@ -170,7 +170,79 @@ export const portfolioData: PortfolioData = {
       ]
     },
   ],
-  projects: []
+  projects: [
+  {
+    id: "goalcast",
+    title: "GoalCast",
+    subtitle: "Football Goal Probability Prediction using Machine Learning",
+    description:
+      "Developed an end-to-end machine learning pipeline trained on over 1.3 million football player-match records to predict goal-scoring probability. The project tackled real-world challenges including feature leakage, severe class imbalance, and missing data while engineering domain-specific features such as expected goals (xG), market valuation, positional roles, and international experience. The final CatBoost model achieved an Average Precision of 47.74, within 10% of the competition-leading score.",
+    tech: [
+      "Python",
+      "CatBoost",
+      "Pandas",
+      "NumPy",
+      "Scikit-learn",
+      "Machine Learning"
+    ],
+    github: "https://github.com/esc-velo/offside-datathon",
+  },
+
+  {
+    id: "notifymail",
+    title: "NotifyMail",
+    subtitle: "Production AI Email Triage & Notification System",
+    description:
+      "Built a production-deployed AI automation platform that continuously monitors Gmail inboxes, classifies emails using Groq's Llama 3.1 model, and delivers structured Discord notifications for internships, hackathons, and career opportunities. The workflow integrates Gmail OAuth2, n8n automation, Docker deployment, PostgreSQL persistence, and GitHub Actions scheduling to create a reliable, always-running assistant.",
+    tech: [
+      "n8n",
+      "Groq API",
+      "Llama 3.1",
+      "Docker",
+      "Render",
+      "Neon PostgreSQL",
+      "GitHub Actions",
+      "JavaScript"
+    ],
+    github: "https://github.com/esc-velo/notifymail",
+  },
+
+  {
+    id: "rentman",
+    title: "RentMan",
+    subtitle: "Full Stack Rental Management System",
+    description:
+      "Designed and developed a complete rental management platform with a normalized relational database, RESTful backend, and interactive frontend. The system manages owners, tenants, properties, rental agreements, payments, and maintenance requests through a clean CRUD architecture built using Express.js and Sequelize ORM.",
+    tech: [
+      "Node.js",
+      "Express.js",
+      "MySQL",
+      "Sequelize",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Postman"
+    ],
+    github: "https://github.com/esc-velo/rentman",
+  },
+
+  {
+    id: "sleep-stage",
+    title: "Sleep Stage Classification",
+    subtitle: "EEG Signal Analysis with Machine Learning",
+    description:
+      "Developed a machine learning pipeline for automatic sleep stage classification using nearly 200 hours of EEG recordings from the Sleep-EDF dataset. The project included signal preprocessing with MNE-Python, frequency-domain feature extraction, and Random Forest classification, achieving 82% accuracy and a macro F1-score of 0.71 on imbalanced sleep-stage data.",
+    tech: [
+      "Python",
+      "MNE-Python",
+      "NumPy",
+      "SciPy",
+      "Pandas",
+      "Scikit-learn",
+      "Random Forest"
+    ],
+  }
+]
 
   
 }

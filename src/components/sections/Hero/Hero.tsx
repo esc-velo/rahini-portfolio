@@ -1,4 +1,4 @@
-import HeroText from "./Hero/HeroText";
+import HeroText from "./HeroText";
 
 export default function Hero() {
   return (
