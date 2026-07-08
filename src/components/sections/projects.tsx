@@ -28,7 +28,7 @@ export default function Projects() {
           </h2>
           <div className="w-12 h-1 bg-primary mx-auto mt-4 rounded-full" />
         </div>
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -40,9 +40,9 @@ export default function Projects() {
               <Card className="glass glass-hover overflow-hidden h-full flex flex-col group">
                 {/* Project Image Panel */}
                 <div className="relative aspect-video w-full overflow-hidden border-b border-border/40">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
+                  <img
+                    src={project.image}
+                    alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
@@ -52,15 +52,15 @@ export default function Projects() {
                     <h3 className="text-xl font-extrabold text-white text-glow">
                       {project.title}
                     </h3>
-                    
+
                     <p className="text-sm text-muted-foreground/90 leading-relaxed font-medium">
                       {project.description}
                     </p>
                     {/* Tech Tags */}
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag, tIndex) => (
-                        <span 
-                          key={tIndex} 
+                        <span
+                          key={tIndex}
                           className="text-xs font-semibold px-2.5 py-1 rounded-lg border border-white/5 bg-white/5 text-slate-300"
                         >
                           {tag}
@@ -71,9 +71,9 @@ export default function Projects() {
                   {/* Actions Links */}
                   <div className="flex items-center gap-4 pt-4 border-t border-border/40">
                     {project.liveUrl && (
-                      <a 
-                        href={project.liveUrl} 
-                        target="_blank" 
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className={cn(buttonVariants({ size: "sm" }), "flex items-center gap-1.5")}
                       >
@@ -82,9 +82,9 @@ export default function Projects() {
                       </a>
                     )}
                     {project.githubUrl && (
-                      <a 
-                        href={project.githubUrl} 
-                        target="_blank" 
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className={cn(buttonVariants({ size: "sm", variant: "outline" }), "flex items-center gap-1.5")}
                       >

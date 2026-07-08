@@ -13,14 +13,14 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsPending(true)
-    
+
     // Simulate API request delay
     await new Promise(resolve => setTimeout(resolve, 1500))
-    
+
     setIsPending(false)
     setIsSuccess(true)
     setFormState({ name: "", email: "", message: "" })
-    
+
     // Auto reset success message after 5 seconds
     setTimeout(() => setIsSuccess(false), 5000)
   }
@@ -35,7 +35,7 @@ export default function Contact() {
         </div>
         <div className="grid md:grid-cols-12 gap-12">
           {/* Info Details Panel */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -64,13 +64,13 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">Location</p>
-                  <p className="text-sm font-bold text-white">San Francisco, CA</p>
+                  <p className="text-sm font-bold text-white">Hyderabad, India</p>
                 </div>
               </div>
             </div>
           </motion.div>
           {/* Form Interactive Panel */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
@@ -82,29 +82,29 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-xs font-bold text-slate-300 uppercase tracking-wider">Your Name</label>
-                    <Input 
+                    <Input
                       id="name"
                       required
-                      type="text" 
-                      placeholder="John Doe" 
+                      type="text"
+                      placeholder="John Doe"
                       value={formState.name}
                       onChange={e => setFormState({ ...formState, name: e.target.value })}
                     />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-xs font-bold text-slate-300 uppercase tracking-wider">Your Email</label>
-                    <Input 
+                    <Input
                       id="email"
                       required
-                      type="email" 
-                      placeholder="john@example.com" 
+                      type="email"
+                      placeholder="john@example.com"
                       value={formState.email}
                       onChange={e => setFormState({ ...formState, email: e.target.value })}
                     />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-xs font-bold text-slate-300 uppercase tracking-wider">Your Message</label>
-                    <textarea 
+                    <textarea
                       id="message"
                       required
                       rows={5}
@@ -128,7 +128,7 @@ export default function Contact() {
                     )}
                   </Button>
                   {isSuccess && (
-                    <motion.div 
+                    <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       className="flex items-center gap-2 text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-xl text-sm font-semibold"

@@ -65,3 +65,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #3e4466;
 }
+
+.select-text {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}

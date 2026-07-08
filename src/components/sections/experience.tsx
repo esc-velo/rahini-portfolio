@@ -29,7 +29,7 @@ export default function ExperienceSection() {
         <div className="relative max-w-3xl mx-auto">
           {/* Timeline central vertical line */}
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-transparent -translate-x-1/2" />
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -39,7 +39,7 @@ export default function ExperienceSection() {
             {portfolioData.experience.map((exp, index) => {
               const isEven = index % 2 === 0
               return (
-                <motion.div 
+                <motion.div
                   key={index}
                   variants={itemVariants}
                   className={`relative flex flex-col md:flex-row items-stretch ${isEven ? "md:flex-row-reverse" : ""}`}
@@ -62,7 +62,7 @@ export default function ExperienceSection() {
                             {exp.company}
                           </span>
                         </div>
-                        
+
                         <h3 className="text-lg font-extrabold text-white">
                           {exp.role}
                         </h3>

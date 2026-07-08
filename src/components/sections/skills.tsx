@@ -25,7 +25,7 @@ export default function Skills() {
           </h2>
           <div className="w-12 h-1 bg-primary mx-auto mt-4 rounded-full" />
         </div>
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -47,7 +47,7 @@ export default function Skills() {
                         <span className="font-semibold text-slate-200">{skill.name}</span>
                         <span className="font-bold text-primary">{skill.level}%</span>
                       </div>
-                      
+
                       {/* Custom styled progress bar */}
                       <div className="h-2 w-full rounded-full bg-white/5 overflow-hidden border border-white/5">
                         <motion.div

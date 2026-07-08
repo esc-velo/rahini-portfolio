@@ -21,6 +21,11 @@ export interface Experience {
   period: string
   description: string[]
 }
+export interface AboutCard {
+  title: string
+  description: string
+  image: string
+}
 export interface PortfolioData {
   name: string
   title: string
@@ -28,6 +33,7 @@ export interface PortfolioData {
   avatar: string
   about: string
   email: string
+  aboutCards: AboutCard[]
   github: string
   linkedin: string
   twitter: string
@@ -42,6 +48,56 @@ export const portfolioData: PortfolioData = {
   avatar: "/avatar-photo.png",
   about: "I'm a Computer Science student at Manipal University Jaipur with interests in machine learning, full-stack development, AI automation, and intelligent systems. I enjoy building projects that combine software engineering with practical AI, ranging from predictive ML models and REST APIs to production-grade automation workflows. I'm currently exploring multi-agent systems, neurotechnology, and scalable AI applications.",
   email: "[rahiniraneru@gmail.com]",
+  aboutCards: [
+  {
+    title: "Hi, I'm Rahini",
+    description:
+      "A Computer Science student passionate about building AI-powered software, automation workflows, and thoughtful digital experiences.",
+    image: "/images/about/me.jpeg",
+  },
+  {
+    title: "Hyderabad Roots",
+    description:
+      "Originally from Hyderabad, a city that sparked my curiosity for technology while keeping me grounded in culture.",
+    image: "/images/about/hyd.jpeg",
+  },
+  {
+    title: "Currently @ MUJ",
+    description:
+      "Pursuing Computer Science at Manipal University Jaipur while exploring AI, full-stack development, and systems engineering.",
+    image: "/images/about/muj.jpeg",
+  },
+  {
+    title: "Dean's List",
+    description:
+      "Two-time Dean's List Awardee, reflecting consistent academic performance alongside projects and extracurriculars.",
+    image: "/images/about/deans.jpeg",
+  },
+  {
+    title: "Hackathons",
+    description:
+      "Three-time hackathon finalist. I enjoy transforming ideas into working prototypes under tight deadlines.",
+    image: "/images/about/hackathon.jpeg",
+  },
+  {
+    title: "What I Build",
+    description:
+      "From machine learning models and REST APIs to AI agents and automation workflows, I love solving practical problems with software.",
+    image: "/images/about/build.jpeg",
+  },
+  {
+    title: "Beyond Code",
+    description:
+      "I'm also a trained classical dancer. It has taught me discipline, patience, and attention to detail that carry into engineering.",
+    image: "/images/about/dance.jpeg",
+  },
+  {
+    title: "Creative Side",
+    description:
+      "Sketching and design help me think visually, influencing how I approach interfaces, layouts, and user experience.",
+    image: "/images/about/sketch.jpeg",
+  },
+],
   github: "https://github.com/esc-velo",
   linkedin: "https://linkedin.com/in/rahiniraneru",
   twitter: "https://twitter.com/rxhini_",
@@ -115,4 +171,6 @@ export const portfolioData: PortfolioData = {
     },
   ],
   projects: []
+
+  
 }
