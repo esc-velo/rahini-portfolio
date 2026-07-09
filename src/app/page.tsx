@@ -7,7 +7,7 @@ import IntroScreen from "@/components/intro/intro-screen";
 import Hero from "@/components/sections/Hero/Hero";
 import AboutMe from "@/components/sections/About/AboutMe";
 import Projects from "@/components/sections/Projects/Projects";
-import Skills from "@/components/sections/Skills";
+import Skills from "@/components/sections/Skills/Skills";
 import Experience from "@/components/sections/Experience";
 import Contact from "@/components/sections/Contact";
 

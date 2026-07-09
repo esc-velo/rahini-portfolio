@@ -40,20 +40,19 @@ export default function ProjectShowcase({ project }: Props) {
               {/* Preview */}
               <div className="relative h-40 rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 to-transparent overflow-hidden">
 
-                <div
-                  className="absolute inset-0 opacity-5"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(to right, white 1px, transparent 1px),linear-gradient(to bottom, white 1px, transparent 1px)",
-                    backgroundSize: "20px 20px",
-                  }}
+                {/* The Image */}
+                <img
+                  src={project.image}
+                  alt="Project Preview"
+                  className="absolute inset-0 h-full w-full object-cover opacity-100"
                 />
 
-                <div className="absolute bottom-4 left-4 rounded-full border border-primary/30 px-3 py-1 text-xs backdrop-blur">
+                <div className="absolute inset-0 bg-black/20" />
+
+                <div className="absolute bottom-4 left-4 rounded-full border border-primary/30 px-3 py-1 text-xs backdrop-blur bg-white/10 text-white">
                   Featured Project
                 </div>
               </div>
-
               {/* Heading */}
 
               <div>

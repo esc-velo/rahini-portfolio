@@ -1,19 +1,18 @@
-export interface Skill {
-  name: string
-  level: number // percentage
-}
-export interface SkillCategory {
-  title: string
-  skills: Skill[]
-}
 export interface Project {
   id: string
   title: string
+  image: string
   subtitle: string
   description: string
   tech: string[]
   github?: string
   live?: string
+}
+export interface Skill {
+  name: string
+  summary: string
+  projectIds?: Project["id"][]
+  status: "Core" | "Comfortable" | "Learning";
 }
 export interface Experience {
   role: string
@@ -25,6 +24,11 @@ export interface AboutCard {
   title: string
   description: string
   image: string
+}
+export interface SkillCategory {
+  title: string
+  description: string
+  skills: Skill[]
 }
 export interface PortfolioData {
   name: string
@@ -46,7 +50,7 @@ export const portfolioData: PortfolioData = {
   title: "Computer Science Student | Full Stack Web & AI Developer",
   tagline: "I build responsive web applications and design intelligent systems.",
   avatar: "/avatar-photo.png",
-  about: "I'm a Computer Science student at Manipal University Jaipur with interests in machine learning, full-stack development, AI automation, and intelligent systems. I enjoy building projects that combine software engineering with practical AI, ranging from predictive ML models and REST APIs to production-grade automation workflows. I'm currently exploring multi-agent systems, neurotechnology, and scalable AI applications.",
+  about: "I build things that I wish existed. My work spans machine learning, full-stack development, and AI automation, with a growing interest in multi-agent systems and brain-inspired computing.",
   email: "[rahiniraneru@gmail.com]",
   aboutCards: [
   {
@@ -102,52 +106,172 @@ export const portfolioData: PortfolioData = {
   linkedin: "https://linkedin.com/in/rahiniraneru",
   twitter: "https://twitter.com/rxhini_",
   skills: [
-    {
-      title: "Programming",
-      skills: [
-        { name: "Python", level: 90 },
-        { name: "JavaScript", level: 85 },
-        { name: "TypeScript", level: 80 },
-        { name: "C", level: 75 },
-        { name: "Java", level: 70 }
-      ]
-    },
-    {
-      title: "AI & Machine Learning",
-      skills: [
-        { name: "Scikit-learn", level: 85 },
-        { name: "PyTorch", level: 75 },
-        { name: "NumPy", level: 90 },
-        { name: "Pandas", level: 90 },
-        { name: "SciPy", level: 80 }
-      ]
-    },
-    {
-      title: "Web Development",
-      skills: [
-        { name: "Node.js", level: 85 },
-        { name: "Express.js", level: 85 },
-        { name: "HTML/CSS", level: 90 },
-        { name: "JavaScript", level: 85 },
-        { name: "TypeScript", level: 80 },
-        { name: "React / Next.js", level: 75 },
-        { name: "Tailwind CSS", level: 80 },
-        { name: "Framer Motion", level: 75 },
-        { name: "Python / FastAPI", level: 82 },
-      ]
-    },
-    {
-      title: "Tools & Databases",
-      skills: [
-        { name: "Git & GitHub", level: 90 },
-        { name: "MySQL", level: 85 },
-        { name: "PostgreSQL", level: 80 },
-        { name: "Docker", level: 75 },
-        { name: "n8n", level: 90 }
-      ]
-    }
-  ],
-  experience: [
+  {
+    title: "Frontend",
+    description: "Crafting responsive, interactive interfaces with a focus on performance, accessibility, and polished user experiences.",
+    skills: [
+      {
+        name: "React",
+        summary:
+          "Building interactive component-based user interfaces with reusable architecture.",
+        projectIds: ["rentman"],
+        status: "Comfortable",
+      },
+      {
+        name: "Next.js",
+        summary:
+          "My primary framework for building modern web applications with App Router and TypeScript.",
+        projectIds: ["notifymail"],
+        status: "Core",
+      },
+      {
+        name: "Tailwind CSS",
+        summary:
+          "Creating responsive interfaces with utility-first styling and custom design systems.",
+        projectIds: ["rentman", "notifymail"],
+        status: "Core",
+      },
+      {
+        name: "Framer Motion",
+        summary:
+          "Adding polished interactions and smooth animations to improve user experience.",
+        projectIds: ["notifymail"],
+        status: "Comfortable",
+      },
+      {
+        name: "TypeScript",
+        summary:
+          "Developing type-safe frontend applications with maintainable component architecture.",
+        projectIds: ["rentman", "notifymail"],
+        status: "Core",
+      },
+    ],
+  },
+
+  {
+    title: "Backend",
+    description: "Building scalable APIs, data-driven applications, and backend systems that prioritize clean architecture and reliability.",
+    skills: [
+      {
+        name: "Node.js",
+        summary:
+          "Building backend services and REST APIs using the JavaScript ecosystem.",
+        projectIds: ["rentman", "notifymail"],
+        status: "Core",
+      },
+      {
+        name: "Express.js",
+        summary:
+          "Developing RESTful APIs with structured routing and middleware.",
+        projectIds: ["rentman"],
+        status: "Core",
+      },
+      {
+        name: "FastAPI",
+        summary:
+          "Building lightweight Python APIs for machine learning and automation workflows.",
+        projectIds: ["goalcast", "sleep-stage"],
+        status: "Comfortable",
+      },
+      {
+        name: "PostgreSQL",
+        summary:
+          "Working with relational databases for production applications and persistent storage.",
+        projectIds: ["notifymail"],
+        status: "Comfortable",
+      },
+      {
+        name: "MySQL",
+        summary:
+          "Designing normalized relational databases and writing efficient SQL queries.",
+        projectIds: ["rentman"],
+        status: "Core",
+      },
+    ],
+  },
+
+  {
+    title: "AI & Data",
+    description: "Transforming data into intelligent applications through machine learning, feature engineering, and predictive modeling.",
+    skills: [
+      {
+        name: "Python",
+        summary:
+          "My primary language for machine learning, automation, backend scripting, and data analysis.",
+        projectIds: ["goalcast", "sleep-stage", "notifymail"],
+        status: "Core",
+      },
+      {
+        name: "NumPy",
+        summary:
+          "Performing numerical computation and efficient array operations for ML pipelines.",
+        projectIds: ["goalcast", "sleep-stage"],
+        status: "Core",
+      },
+      {
+        name: "Pandas",
+        summary:
+          "Cleaning, transforming, and analyzing structured datasets for machine learning.",
+        projectIds: ["goalcast", "sleep-stage"],
+        status: "Core",
+      },
+      {
+        name: "Scikit-learn",
+        summary:
+          "Training, evaluating, and optimizing classical machine learning models.",
+        projectIds: ["goalcast", "sleep-stage"],
+        status: "Core",
+      },
+      {
+        name: "PyTorch",
+        summary:
+          "Exploring deep learning workflows and neural network development.",
+        status: "Learning",
+      },
+    ],
+  },
+
+  {
+    title: "Tools",
+    description: "Automating workflows, streamlining development, and deploying production-ready applications with modern tooling.",
+    skills: [
+      {
+        name: "Git",
+        summary:
+          "Using version control for collaborative development and project management.",
+        projectIds: ["goalcast", "rentman", "notifymail"],
+        status: "Core",
+      },
+      {
+        name: "Docker",
+        summary:
+          "Containerizing applications for reproducible development and deployment.",
+        projectIds: ["notifymail"],
+        status: "Learning",
+      },
+      {
+        name: "GitHub",
+        summary:
+          "Managing repositories, pull requests, and collaborative software development.",
+        projectIds: [
+          "goalcast",
+          "rentman",
+          "notifymail",
+          "sleep-stage",
+        ],
+        status: "Core",
+      },
+      {
+        name: "n8n",
+        summary:
+          "Designing AI-powered automation workflows integrating APIs and external services.",
+        projectIds: ["notifymail"],
+        status: "Core",
+      },
+    ],
+  },
+],
+    experience: [
     {
       role: "Webmaster",
       company: "IEEE Computational Intelligence Society, MUJ",
@@ -174,6 +298,7 @@ export const portfolioData: PortfolioData = {
   {
     id: "goalcast",
     title: "GoalCast",
+    image: "/images/projects/goalcast.png",
     subtitle: "Football Goal Probability Prediction using Machine Learning",
     description:
       "Developed an end-to-end machine learning pipeline trained on over 1.3 million football player-match records to predict goal-scoring probability. The project tackled real-world challenges including feature leakage, severe class imbalance, and missing data while engineering domain-specific features such as expected goals (xG), market valuation, positional roles, and international experience. The final CatBoost model achieved an Average Precision of 47.74, within 10% of the competition-leading score.",
@@ -191,6 +316,7 @@ export const portfolioData: PortfolioData = {
   {
     id: "notifymail",
     title: "NotifyMail",
+    image: "/images/projects/notifymail.png",
     subtitle: "Production AI Email Triage & Notification System",
     description:
       "Built a production-deployed AI automation platform that continuously monitors Gmail inboxes, classifies emails using Groq's Llama 3.1 model, and delivers structured Discord notifications for internships, hackathons, and career opportunities. The workflow integrates Gmail OAuth2, n8n automation, Docker deployment, PostgreSQL persistence, and GitHub Actions scheduling to create a reliable, always-running assistant.",
@@ -210,6 +336,7 @@ export const portfolioData: PortfolioData = {
   {
     id: "rentman",
     title: "RentMan",
+    image: "/images/projects/rentman.png",
     subtitle: "Full Stack Rental Management System",
     description:
       "Designed and developed a complete rental management platform with a normalized relational database, RESTful backend, and interactive frontend. The system manages owners, tenants, properties, rental agreements, payments, and maintenance requests through a clean CRUD architecture built using Express.js and Sequelize ORM.",
@@ -228,7 +355,8 @@ export const portfolioData: PortfolioData = {
 
   {
     id: "sleep-stage",
-    title: "Sleep Stage Classification",
+    title: "Sleep Stage \n Classification",
+    image: "/images/projects/sleep-stage.png",
     subtitle: "EEG Signal Analysis with Machine Learning",
     description:
       "Developed a machine learning pipeline for automatic sleep stage classification using nearly 200 hours of EEG recordings from the Sleep-EDF dataset. The project included signal preprocessing with MNE-Python, frequency-domain feature extraction, and Random Forest classification, achieving 82% accuracy and a macro F1-score of 0.71 on imbalanced sleep-stage data.",

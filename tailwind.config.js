@@ -7,6 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        mono: ['"Geist Mono"', 'monospace'],
+      },
+    },
+  },
+  theme: {
+    extend: {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -62,6 +69,7 @@ module.exports = {
         "fade-in-up": "fade-in-up 0.6s ease-out forwards",
         "pulse-glow": "pulse-glow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
+      
     },
   },
   plugins: [],
