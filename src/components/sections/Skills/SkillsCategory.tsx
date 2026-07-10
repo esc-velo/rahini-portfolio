@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Card } from "@/components/ui/card";
+import { Card } from "@/components/ui/Card";
 import type { SkillCategory as SkillCategoryType } from "@/data/portfolio";
 
 import SkillCard from "./SkillsCard";
@@ -59,7 +59,7 @@ export default function SkillsCategory({
     >
       <Card
         className={cn(
-          "glass cursor-pointer transition-colors duration-200",
+          "overflow-hidden rounded-3xl border border-border/60 bg-background/70 backdrop-blur-xl shadow-2xl",
           active ? "!border-primary/40" : "hover:!border-primary/30"
         )}
       >

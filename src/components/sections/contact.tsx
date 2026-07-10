@@ -2,26 +2,36 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { Mail, MapPin, Send, CheckCircle2 } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/Card"
+import { Input } from "@/components/ui/Input"
+import { Button } from "@/components/ui/Button"
+import { sendContactEmail } from "@/app/actions/contact"
 import { portfolioData } from "@/data/portfolio"
 export default function Contact() {
+  const [error, setError] = React.useState<string | null>(null)
   const [formState, setFormState] = React.useState({ name: "", email: "", message: "" })
   const [isPending, setIsPending] = React.useState(false)
   const [isSuccess, setIsSuccess] = React.useState(false)
-  const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsPending(true)
+    setError(null)
 
-    // Simulate API request delay
-    await new Promise(resolve => setTimeout(resolve, 1500))
+    const formData = new FormData()
+    formData.append("name", formState.name)
+    formData.append("email", formState.email)
+    formData.append("message", formState.message)
 
+    const result = await sendContactEmail(formData)
     setIsPending(false)
+
+    if (result.error) {
+      setError(result.error)
+      return
+    }
+
     setIsSuccess(true)
     setFormState({ name: "", email: "", message: "" })
-
-    // Auto reset success message after 5 seconds
     setTimeout(() => setIsSuccess(false), 5000)
   }
   return (
@@ -29,7 +39,7 @@ export default function Contact() {
       <div className="container max-w-5xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight inline-block bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
-            Get In Touch
+            {"<contact-me>"}
           </h2>
           <div className="w-12 h-1 bg-primary mx-auto mt-4 rounded-full" />
         </div>
@@ -82,6 +92,7 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-xs font-bold text-slate-300 uppercase tracking-wider">Your Name</label>
+                    <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
                     <Input
                       id="name"
                       required

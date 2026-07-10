@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Code2 } from "lucide-react";
 
 import type { Project } from "@/data/portfolio";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/Card";
 
 type Props = {
   project: Project;

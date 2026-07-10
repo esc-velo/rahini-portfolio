@@ -16,6 +16,7 @@ export interface Skill {
 }
 export interface Experience {
   role: string
+  type: string
   company: string
   period: string
   description: string[]
@@ -37,10 +38,11 @@ export interface PortfolioData {
   avatar: string
   about: string
   email: string
-  aboutCards: AboutCard[]
   github: string
   linkedin: string
   twitter: string
+  instagram: string
+  aboutCards: AboutCard[]
   skills: SkillCategory[]
   projects: Project[]
   experience: Experience[]
@@ -51,7 +53,11 @@ export const portfolioData: PortfolioData = {
   tagline: "I build responsive web applications and design intelligent systems.",
   avatar: "/avatar-photo.png",
   about: "I build things that I wish existed. My work spans machine learning, full-stack development, and AI automation, with a growing interest in multi-agent systems and brain-inspired computing.",
-  email: "[rahiniraneru@gmail.com]",
+  email: "rahiniraneru@gmail.com",
+  github: "https://github.com/esc-velo",
+  linkedin: "https://www.linkedin.com/in/rahiniraneru",
+  twitter: "https://twitter.com/rxhini_",
+  instagram: "https://instagram.com/rahiniraneruu",
   aboutCards: [
   {
     title: "Hi, I'm Rahini",
@@ -102,9 +108,6 @@ export const portfolioData: PortfolioData = {
     image: "/images/about/sketch.jpeg",
   },
 ],
-  github: "https://github.com/esc-velo",
-  linkedin: "https://linkedin.com/in/rahiniraneru",
-  twitter: "https://twitter.com/rxhini_",
   skills: [
   {
     title: "Frontend",
@@ -274,6 +277,7 @@ export const portfolioData: PortfolioData = {
     experience: [
     {
       role: "Webmaster",
+      type: "leadership",
       company: "IEEE Computational Intelligence Society, MUJ",
       period: "June 2025 - April 2026",
       description: [
@@ -285,6 +289,7 @@ export const portfolioData: PortfolioData = {
 
     {
       role: "Open Source Contributor",
+      type: "opensource",
       company: "GirlScript Summer of Code",
       period: "2025",
       description: [

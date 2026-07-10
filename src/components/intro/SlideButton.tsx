@@ -21,7 +21,7 @@ import {
 import { Check, Loader2, SendHorizontal, X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { Button, ButtonProps } from "@/components/ui/button"
+import { Button, ButtonProps } from "@/components/ui/Button"
 
 
 const DRAG_CONSTRAINTS = { left: 0, right: 235 }
@@ -88,8 +88,8 @@ interface SlideButtonProps extends ButtonProps {
 }
 
 const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
-    
-(
+
+  (
     {
       className,
       onComplete,
@@ -168,27 +168,27 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
               style={{ x: springX }}
               className="absolute -left-4 z-10 flex cursor-grab items-center justify-start active:cursor-grabbing"
             >
-                <Button
-                    ref={ref}
-                    disabled={status === "loading"}
-                    {...buttonProps}
-                    size="icon"
-                    className={cn(
-                        "shadow-button rounded-full overflow-hidden p-0 drop-shadow-xl",
-                        isDragging && "scale-105 transition-transform",
-                        className
-                    )}
-                    >
-                    <Image
-                        src="/avatar-photo.png"
-                        alt="Rahini"
-                        width={60}
-                        height={60}
-                        draggable={false}
-                        className="h-full w-full rounded-full object-cover"
-                        priority
-                    />
-                </Button>
+              <Button
+                ref={ref}
+                disabled={status === "loading"}
+                {...buttonProps}
+                size="icon"
+                className={cn(
+                  "shadow-button rounded-full overflow-hidden p-0 drop-shadow-xl",
+                  isDragging && "scale-105 transition-transform",
+                  className
+                )}
+              >
+                <Image
+                  src="/avatar-photo.png"
+                  alt="Rahini"
+                  width={60}
+                  height={60}
+                  draggable={false}
+                  className="h-full w-full rounded-full object-cover"
+                  priority
+                />
+              </Button>
             </motion.div>
           )}
         </AnimatePresence>

@@ -20,7 +20,7 @@ export default function ProjectList({
           project={project}
           index={index}
           isActive={index === activeIndex}
-          onActivate={() => setActiveIndex(index)} 
+          onActivate={() => setActiveIndex(index)}
         />
       ))}
     </div>

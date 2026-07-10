@@ -51,8 +51,8 @@ export default function ProjectItem({
           )}
         >
           <TextStagger
-              text={project.title}
-              active={isActive}
+            text={project.title}
+            active={isActive}
           />
         </h3>
       </div>

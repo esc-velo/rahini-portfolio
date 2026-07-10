@@ -16,9 +16,9 @@ export default function Skills() {
       className="mx-auto w-full max-w-6xl px-6 py-24"
     >
       <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight inline-block bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
-            {"<skills>"}
-          </h2>
+        <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight inline-block bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+          {"<skills>"}
+        </h2>
 
       </div>
 

@@ -1,6 +1,6 @@
 "use client"
 
-import ExpandCards from "@/components/ui/expand-cards"
+import ExpandCards from "@/components/ui/ExpandCards"
 import { motion } from "framer-motion"
 import { portfolioData } from "@/data/portfolio"
 

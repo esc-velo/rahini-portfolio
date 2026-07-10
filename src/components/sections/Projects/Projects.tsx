@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { portfolioData } from "@/data/portfolio";
-import ProjectList from "@/components/sections/Projects/ProjectList"; 
+import ProjectList from "@/components/sections/Projects/ProjectList";
 import ProjectShowcase from "@/components/sections/Projects/ProjectShowcase";
 
 export default function Projects() {

@@ -37,10 +37,9 @@ export default function ExpandCards({ cards }: ExpandCardsProps) {
                 transition-all
                 duration-500
                 ease-out
-                ${
-                  active
-                    ? "scale-[1.02] brightness-100 saturate-100 shadow-2xl"
-                    : "scale-[0.98] brightness-75 saturate-75"
+                ${active
+                  ? "scale-[1.02] brightness-100 saturate-100 shadow-2xl"
+                  : "scale-[0.98] brightness-75 saturate-75"
                 }
               `}
               style={{
@@ -70,10 +69,9 @@ export default function ExpandCards({ cards }: ExpandCardsProps) {
                   inset-0
                   transition-all
                   duration-500
-                  ${
-                    active
-                      ? "bg-gradient-to-t from-black/70 via-black/10 to-transparent"
-                      : "bg-gradient-to-t from-black/80 via-black/30 to-black/20"
+                  ${active
+                    ? "bg-gradient-to-t from-black/70 via-black/10 to-transparent"
+                    : "bg-gradient-to-t from-black/80 via-black/30 to-black/20"
                   }
                 `}
               />

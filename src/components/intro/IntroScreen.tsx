@@ -1,6 +1,6 @@
 "use client";
 
-import SlideButton from "./slide-button";
+import SlideButton from "./SlideButton";
 
 type IntroScreenProps = {
   onComplete: () => void;
