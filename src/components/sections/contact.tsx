@@ -35,7 +35,10 @@ export default function Contact() {
     setTimeout(() => setIsSuccess(false), 5000)
   }
   return (
-    <section id="contact" className="py-20 bg-white/[0.01] border-t border-border/40 relative">
+    <section id="contact" className="relative py-28 bg-white/[0.01]">
+    <div className="absolute inset-x-0 top-0 h-px bg-white/8" />
+    <div className="absolute inset-x-0 bottom-0 h-px bg-white/8" />
+
       <div className="container max-w-5xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight inline-block bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
@@ -54,7 +57,7 @@ export default function Contact() {
           >
             <h3 className="text-2xl font-bold text-white">Let's talk</h3>
             <p className="text-sm text-muted-foreground/90 leading-relaxed font-medium">
-              Have a question or want to work together? Feel free to drop a message, and I'll get back to you as soon as possible.
+              Always in for new opportunities and collaborations. Feel free to drop a message, and I'll ping you back as soon as possible.
             </p>
             <div className="space-y-4 pt-4">
               <div className="flex items-center gap-4 p-4 rounded-xl border border-border bg-white/5">
@@ -74,7 +77,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">Location</p>
-                  <p className="text-sm font-bold text-white">Hyderabad, India</p>
+                  <p className="text-sm font-bold text-white">Hyderabad, Telangana, India <br />Jaipur, Rajasthan, India</p>
                 </div>
               </div>
             </div>

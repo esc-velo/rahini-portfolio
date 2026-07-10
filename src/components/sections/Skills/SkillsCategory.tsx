@@ -59,8 +59,10 @@ export default function SkillsCategory({
     >
       <Card
         className={cn(
-          "overflow-hidden rounded-3xl border border-border/60 bg-background/70 backdrop-blur-xl shadow-2xl",
-          active ? "!border-primary/40" : "hover:!border-primary/30"
+          "overflow-hidden rounded-3xl border bg-background/70 backdrop-blur-xl shadow-2xl transition-all duration-300",
+          active 
+          ? "border-white/60 shadow-[0_0_40px_rgba(255,255,255,0.08)]" 
+          : "border-white/15"
         )}
       >
         <div className="px-8 py-7">
@@ -68,7 +70,7 @@ export default function SkillsCategory({
             layout
             className={cn(
               "text-2xl font-semibold tracking-tight transition-colors duration-200",
-              active ? "text-primary" : "text-foreground"
+              active ? "text-white" : "text-slate opacity-90"
             )}
           >
             {category.title}

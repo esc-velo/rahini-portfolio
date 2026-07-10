@@ -42,6 +42,7 @@ export interface PortfolioData {
   linkedin: string
   twitter: string
   instagram: string
+  resume: string
   aboutCards: AboutCard[]
   skills: SkillCategory[]
   projects: Project[]
@@ -58,6 +59,7 @@ export const portfolioData: PortfolioData = {
   linkedin: "https://www.linkedin.com/in/rahiniraneru",
   twitter: "https://twitter.com/rxhini_",
   instagram: "https://instagram.com/rahiniraneruu",
+  resume: "/resume.pdf",
   aboutCards: [
   {
     title: "Hi, I'm Rahini",

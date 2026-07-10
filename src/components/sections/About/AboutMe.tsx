@@ -1,5 +1,4 @@
 "use client"
-
 import ExpandCards from "@/components/ui/ExpandCards"
 import { motion } from "framer-motion"
 import { portfolioData } from "@/data/portfolio"
@@ -8,8 +7,11 @@ export default function AboutMe() {
   return (
     <section
       id="about"
-      className="py-24 border-y border-border/40 bg-white/[0.01] relative"
+      className="relative py-28 bg-white/[0.01] min-h-screen flex flex-col justify-center"
     >
+    <div className="absolute inset-x-0 top-0 h-px bg-white/8" />
+    <div className="absolute inset-x-0 bottom-0 h-px bg-white/8" />
+
       <div className="container max-w-8xl mx-auto px-6">
         {/* Section Heading */}
         <div className="text-center mb-8">

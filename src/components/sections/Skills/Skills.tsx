@@ -6,9 +6,7 @@ import { portfolioData } from "@/data/portfolio";
 import SkillsCategory from "./SkillsCategory";
 
 export default function Skills() {
-  const [activeCategory, setActiveCategory] = useState<string | null>(
-    portfolioData.skills[0]?.title ?? null
-  );
+const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   return (
     <section
@@ -22,7 +20,7 @@ export default function Skills() {
 
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-4" onMouseLeave={() => setActiveCategory(null)}>
         {portfolioData.skills.map((category) => (
           <SkillsCategory
             key={category.title}

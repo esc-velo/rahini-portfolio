@@ -19,6 +19,7 @@ const socialLinks: SocialLink[] = [
 ];
 
 const SocialDock: React.FC<{ className?: string }> = ({ className = '' }) => {
+    const [visible, setVisible] = useState(true);
     const [mouseX, setMouseX] = useState<number | null>(null);
     const [currentScales, setCurrentScales] = useState<number[]>(socialLinks.map(() => 1));
     const [currentPositions, setCurrentPositions] = useState<number[]>([]);
@@ -45,6 +46,22 @@ const SocialDock: React.FC<{ className?: string }> = ({ className = '' }) => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, [getResponsiveConfig]);
+
+    useEffect(() => {
+    const contactSection = document.getElementById("contact");
+    if (!contactSection) return;
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+            setVisible(!entry.isIntersecting);
+        },
+        {
+            rootMargin: "0px 0px -250px 0px",
+            threshold: 0,
+        }
+    );
+    observer.observe(contactSection);
+    return () => observer.disconnect();
+}, []);
 
     const calculateTargetMagnification = useCallback((mousePosition: number | null) => {
         if (mousePosition === null) return socialLinks.map(() => minScale);
@@ -131,7 +148,13 @@ const SocialDock: React.FC<{ className?: string }> = ({ className = '' }) => {
     return (
         <div
             ref={dockRef}
-            className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 backdrop-blur-md ${className}`}
+            className={`fixed bottom-14 left-1/2 -translate-x-1/2 z-50 backdrop-blur-[7px] transition-all duration-500
+${visible
+    ? "opacity-100 translate-y-0 pointer-events-auto"
+    : "opacity-0 translate-y-6 pointer-events-none"
+}
+${className}
+`}
             style={{
                 width: `${contentWidth + padding * 2}px`,
                 background: 'rgba(45, 45, 45, 0.75)',

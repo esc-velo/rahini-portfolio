@@ -14,14 +14,15 @@ const COLLAPSED_WIDTH = "5rem";
 const CARD_HEIGHT = "24rem";
 
 export default function ExpandCards({ cards }: ExpandCardsProps) {
-  const [activeCard, setActiveCard] = useState(0);
+  const [activeCard, setActiveCard] = useState<number | null>(null);
 
   return (
     <div className="w-full">
       {/* Cards */}
-      <div className="flex justify-center gap-2 overflow-hidden">
+      <div className="flex justify-center gap-2 overflow-hidden" onMouseLeave={() => setActiveCard(null)}>
+
         {cards.map((card, index) => {
-          const active = index === activeCard;
+          const active = activeCard === index;
 
           return (
             <motion.div
@@ -39,7 +40,7 @@ export default function ExpandCards({ cards }: ExpandCardsProps) {
                 ease-out
                 ${active
                   ? "scale-[1.02] brightness-100 saturate-100 shadow-2xl"
-                  : "scale-[0.98] brightness-75 saturate-75"
+                  : "scale-[0.98] brightness-90 saturate-90 opacity-80"
                 }
               `}
               style={{
@@ -83,24 +84,26 @@ export default function ExpandCards({ cards }: ExpandCardsProps) {
       {/* Text */}
       <div className="mt-12 max-w-3xl mx-auto text-center min-h-[160px]">
         <AnimatePresence mode="wait">
-          <motion.div
-            key={activeCard}
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -18 }}
-            transition={{
-              duration: 0.35,
-              ease: "easeInOut",
-            }}
-          >
-            <h3 className="text-3xl font-bold mb-4">
-              {cards[activeCard].title}
-            </h3>
+          {activeCard !== null && (
+            <motion.div
+              key={activeCard}
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -18 }}
+              transition={{
+                duration: 0.35,
+                ease: "easeInOut",
+              }}
+            >
+              <h3 className="text-3xl font-bold mb-4">
+                {cards[activeCard].title}
+              </h3>
 
-            <p className="text-muted-foreground text-lg leading-8">
-              {cards[activeCard].description}
-            </p>
-          </motion.div>
+              <p className="text-muted-foreground text-lg leading-8">
+                {cards[activeCard].description}
+              </p>
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
     </div>

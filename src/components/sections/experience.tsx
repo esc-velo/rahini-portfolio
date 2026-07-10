@@ -22,43 +22,50 @@ export default function ExperienceSection() {
   }
 
   return (
-    <section id="experience" className="py-20 bg-white/[0.01] border-y border-border/40 relative">
-      <div className="container max-w-5xl mx-auto px-6">
+    <section id="experience" className="relative py-28 bg-white/[0.01]">
+    <div className="absolute inset-x-0 top-0 h-px bg-white/8" />
+    <div className="absolute inset-x-0 bottom-0 h-px bg-white/8" />
+      <div className="container max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight inline-block bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
             {"<experience>"}
           </h2>
           <div className="w-12 h-1 bg-primary mx-auto mt-4 rounded-full" />
         </div>
-        <div className="relative max-w-2xl mx-auto">
-          <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-transparent" />
+        <div className="relative max-w-6xl mx-auto">
+          <div className="absolute left-[22px] top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-transparent" />
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="space-y-10"
+            className="space-y-14"
           >
             {portfolioData.experience.map((exp, index) => {
               const EntryIcon = iconMap[exp.type] ?? Briefcase
               return (
                 <motion.div key={index} variants={itemVariants} className="relative pl-14">
-                  <div className="absolute left-0 top-0 z-10 flex items-center justify-center w-8 h-8 rounded-full bg-background border-2 border-primary text-primary shadow-lg">
-                    <EntryIcon className="w-4 h-4" />
+                  <div className="absolute left-0 top-0 z-10 flex items-center justify-center w-11 h-11 rounded-full bg-background border-2 border-primary text-primary shadow-lg">
+                    <EntryIcon className="w-5 h-5" />
                   </div>
-                  <Card className="glass glass-hover">
-                    <CardContent className="p-6 space-y-3">
-                      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border/40 pb-2">
-                        <span className="text-xs font-bold text-primary tracking-wide uppercase px-2 py-0.5 rounded-full bg-primary/10">
-                          {exp.period}
+                  <Card className="glass hover:border-white/20 hover:-translate-y-1 hover:shadow-2xl transition-all duration-300">
+                    <CardContent className="p-8 md:p-10 space-y-6">
+                      <div className="space-y-2 border-b border-white/10 pb-5">
+                        <h3 className="text-2xl font-bold">
+                            {exp.role}
+                        </h3>
+
+                        <p className="text-base text-white/90">
+                            {exp.company}
+                        </p>
+                        <span className="inline-flex rounded-full ...">
+                            {exp.period}
                         </span>
-                        <span className="text-sm font-bold text-white">{exp.company}</span>
                       </div>
-                      <h3 className="text-lg font-extrabold text-white">{exp.role}</h3>
                       <ul className="space-y-2 text-sm text-muted-foreground/90 font-medium">
                         {exp.description.map((desc, dIndex) => (
                           <li key={dIndex} className="flex gap-2">
-                            <span className="text-secondary shrink-0">•</span>
+                            <span className="text-secondary shrink-0"><div className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" /></span>
                             <span>{desc}</span>
                           </li>
                         ))}

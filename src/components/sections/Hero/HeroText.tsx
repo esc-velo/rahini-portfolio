@@ -1,6 +1,9 @@
 "use client";
 
 import AsciiName from "./AsciiName";
+import { portfolioData } from "@/data/portfolio";
+import { Button } from "@/components/ui/Button";
+
 
 export default function HeroText() {
     const scrollTo = (id: string) => {
@@ -22,19 +25,41 @@ export default function HeroText() {
             </p>
 
             <div className="mt-10 flex gap-4">
-                <button
-                    onClick={() => scrollTo("projects")}
-                    className="rounded-full bg-white px-6 py-3 text-black transition hover:scale-105"
-                >
-                    View Projects
-                </button>
+            <Button
+            shine
+            onClick={() => scrollTo("projects")}
+            className="
+                rounded-lg
+                bg-white
+                text-black
+                px-7
+                py-6
+                border-2
+                border-black
+                shadow-[4px_4px_0px_0px_rgba(255,255,255,0.25)]
+                hover:-translate-x-[2px]
+                hover:-translate-y-[2px]
+                hover:shadow-[6px_6px_0px_0px_rgba(255,255,255,0.3)]
+                active:translate-x-0
+                active:translate-y-0
+                active:shadow-none
+            "
+            >
+            View Projects
+            </Button>
 
-                <button
-                    onClick={() => scrollTo("contact")}
+                <Button shine
+                    variant="outline"
+                    onClick={() => {
+                        const link = document.createElement("a");
+                        link.href = portfolioData.resume;
+                        link.download = "Rahini_Raneru_Resume.pdf";
+                        link.click();
+                    }}
                     className="rounded-full border border-zinc-500 px-6 py-3 transition hover:border-white"
                 >
-                    Contact Me
-                </button>
+                    Download Resume
+                </Button>
             </div>
         </div>
     );

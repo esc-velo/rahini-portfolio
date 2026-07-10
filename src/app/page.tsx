@@ -10,6 +10,7 @@ import Projects from "@/components/sections/Projects/Projects";
 import Skills from "@/components/sections/Skills/Skills";
 import Experience from "@/components/sections/Experience";
 import Contact from "@/components/sections/Contact";
+import Footer from "@/components/sections/Footer";
 
 import SocialDock from "@/components/ui/SocialDock";
 
@@ -32,7 +33,7 @@ export default function Home() {
       <Skills />
       <Experience />
       <Contact />
-
+      <Footer />
       <SocialDock />
     </main>
   );
