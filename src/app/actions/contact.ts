@@ -21,8 +21,8 @@ export async function sendContactEmail(formData: FormData) {
 
   try {
     await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>", // swap once you verify a domain
-      to: "your-real-inbox@example.com",
+      from: "Portfolio Contact <onboarding@resend.dev>",
+      to: "rahiniraneru@gmail.com",
       replyTo: email,
       subject: `Portfolio message from ${name}`,
       text: `From: ${name} (${email})\n\n${message}`,

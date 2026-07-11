@@ -18,18 +18,15 @@ export default function IntroScreen({ onComplete }: IntroScreenProps) {
           relative
           w-[420px]
           rounded-[32px]
-          /* Multi-layered background: translucent tint + radial gradient highlight */
           bg-gradient-to-br from-white/[0.07] to-white/[0.01]
           backdrop-blur-xl
           
-          /* Simulated specular reflection border using a gradient border trick */
           border border-transparent 
           bg-clip-padding 
           before:absolute before:inset-0 before:rounded-[32px] before:p-[1px] 
           before:bg-gradient-to-br before:from-white/20 before:via-white/5 before:to-transparent 
           before:-z-10 before:mask-composite
           
-          /* Deep volumetric shadows */
           shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)]
           shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]
           
@@ -37,7 +34,6 @@ export default function IntroScreen({ onComplete }: IntroScreenProps) {
           overflow-hidden
         "
       >
-        {/* Noise overlay texture for a premium tactile finish */}
         <div 
           className="absolute inset-0 opacity-[0.015] pointer-events-none mix-blend-overlay bg-repeat"
           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")` }}
@@ -54,7 +50,7 @@ export default function IntroScreen({ onComplete }: IntroScreenProps) {
             </h1>
 
             <p className="text-sm font-medium text-zinc-400/60 tracking-wide">
-              Slide to enter
+              Computer Science • AI • Full Stack
             </p>
           </div>
 
