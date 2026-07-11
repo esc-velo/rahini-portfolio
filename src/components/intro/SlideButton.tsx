@@ -24,12 +24,12 @@ import { cn } from "@/lib/utils"
 import { Button, ButtonProps } from "@/components/ui/Button"
 
 
-const DRAG_CONSTRAINTS = { left: 0, right: 235 }
+const DRAG_CONSTRAINTS = { left: 0, right: 289 }
 const DRAG_THRESHOLD = 0.9
 
 const BUTTON_STATES = {
-  initial: { width: "17rem" },
-  completed: { width: "10rem" },
+  initial: { width: "100%" },
+  completed: { width: "100%" },
 }
 
 const ANIMATION_CONFIG: { spring: Transition } = {
@@ -144,7 +144,8 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
       <motion.div
         animate={completed ? BUTTON_STATES.completed : BUTTON_STATES.initial}
         transition={ANIMATION_CONFIG.spring}
-        className="shadow-button-inset dark:shadow-button-inset-dark relative flex h-10 items-center justify-center rounded-full bg-gray-100"
+        /* Fixed track layout: h-12 w-full max-w-xs or custom width */
+        className="relative flex h-12 w-full items-center justify-center rounded-full bg-white/5 border border-white/10 overflow-hidden"
       >
         {!completed && (
           <motion.div
@@ -154,6 +155,7 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
             className="absolute inset-y-0 left-0 z-0 rounded-full bg-accent"
           />
         )}
+        
         <AnimatePresence>
           {!completed && (
             <motion.div
@@ -166,15 +168,17 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
               onDragEnd={handleDragEnd}
               onDrag={handleDrag}
               style={{ x: springX }}
-              className="absolute -left-4 z-10 flex cursor-grab items-center justify-start active:cursor-grabbing"
+              /* Changed: Use left-1 instead of inset-y-0 p-1. This gives a perfect 4px offset from the left edge */
+              className="absolute top-1/2 left-1 -translate-y-1/2 z-10 flex cursor-grab items-center active:cursor-grabbing"
             >
               <Button
                 ref={ref}
                 disabled={status === "loading"}
                 {...buttonProps}
                 size="icon"
+                /* Locked to exactly h-10 w-10 so it sits perfectly centered vertically in a h-12 track */
                 className={cn(
-                  "shadow-button rounded-full overflow-hidden p-0 drop-shadow-xl",
+                  "h-10 w-10 shadow-button rounded-full overflow-hidden p-0 drop-shadow-xl aspect-square",
                   isDragging && "scale-105 transition-transform",
                   className
                 )}
@@ -182,8 +186,8 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
                 <Image
                   src="/avatar-photo.png"
                   alt="Rahini"
-                  width={60}
-                  height={60}
+                  width={40}
+                  height={40}
                   draggable={false}
                   className="h-full w-full rounded-full object-cover"
                   priority
@@ -192,6 +196,13 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Text background indicator hint */}
+        {!completed && (
+          <span className="text-xs font-medium text-white/30 tracking-wide select-none pointer-events-none z-0">
+            Slide to enter
+          </span>
+        )}
 
         <AnimatePresence>
           {completed && (
@@ -218,7 +229,7 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
           )}
         </AnimatePresence>
       </motion.div>
-    )
+    );
   }
 )
 

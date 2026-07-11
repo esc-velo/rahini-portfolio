@@ -4,6 +4,21 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { AboutCard } from "@/data/portfolio";
+import { IBM_Plex_Mono, Instrument_Serif } from "next/font/google";
+
+const ibmPlexMono = IBM_Plex_Mono({
+    subsets: ["latin"],
+    weight: ["400", "700"],
+    style: ["normal", "italic"],
+    display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+    subsets: ["latin"],
+    weight: ["400"],
+    style: ["italic"],
+    display: "swap",
+});
 
 type ExpandCardsProps = {
   cards: AboutCard[];
@@ -82,7 +97,7 @@ export default function ExpandCards({ cards }: ExpandCardsProps) {
       </div>
 
       {/* Text */}
-      <div className="mt-12 max-w-3xl mx-auto text-center min-h-[160px]">
+      <div className="mt-12 max-w-3xl mx-auto text-center min-h-[96px]">
         <AnimatePresence mode="wait">
           {activeCard !== null && (
             <motion.div
@@ -99,7 +114,7 @@ export default function ExpandCards({ cards }: ExpandCardsProps) {
                 {cards[activeCard].title}
               </h3>
 
-              <p className="text-muted-foreground text-lg leading-8">
+              <p className={`${instrumentSerif.className} text-muted-foreground text-xl leading-8`}>
                 {cards[activeCard].description}
               </p>
             </motion.div>

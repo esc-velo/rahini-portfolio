@@ -17,7 +17,6 @@ const statusStyles = {
 export default function SkillCard({ skill }: SkillCardProps) {
   return (
     <motion.div
-      layout
       className="glass flex items-center justify-between gap-3 rounded-xl border border-border/40 px-5 py-4"
     >
       <h4 className="text-base font-bold text-white">{skill.name}</h4>

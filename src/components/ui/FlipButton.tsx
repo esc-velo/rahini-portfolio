@@ -16,12 +16,12 @@ export function FlipButton({
   const flipVariants = {
     one: {
       rotateX: 0,
-      backgroundColor: '#7595caff',
+      backgroundColor: 'rgba(32, 40, 51, 1)',
       color: '#ffffff',
     },
     two: {
       rotateX: 180,
-      backgroundColor: '#f4f4f5',
+      backgroundColor: 'rgb(244, 234, 225, 1)',
       color: '#18181b',
     },
   }

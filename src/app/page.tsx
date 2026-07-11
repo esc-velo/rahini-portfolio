@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import IntroScreen from "@/components/intro/IntroScreen";
+import Aurora from "@/components/ui/Aurora";
 
 import Hero from "@/components/sections/Hero/Hero";
 import AboutMe from "@/components/sections/About/AboutMe";
@@ -26,15 +27,26 @@ export default function Home() {
   }
 
   return (
+    <div className="relative min-h-screen">
+      {/* Aurora Background */}
+      <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+        <Aurora
+          colorStops={["#202833", "#414354", "#1b3250"]}
+          amplitude={1}
+          blend={1}
+          speed={0.5}
+        />
+      </div>
     <main>
       <Hero />
       <AboutMe />
       <Projects />
-      <Skills />
       <Experience />
+      <Skills />
       <Contact />
       <Footer />
       <SocialDock />
     </main>
+    </div>
   );
 }

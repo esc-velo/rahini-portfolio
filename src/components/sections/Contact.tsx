@@ -7,6 +7,22 @@ import { Input } from "@/components/ui/Input"
 import { FlipButton } from "@/components/ui/FlipButton"
 import { sendContactEmail } from "@/app/actions/contact"
 import { portfolioData } from "@/data/portfolio"
+import { IBM_Plex_Mono, Instrument_Serif } from "next/font/google";
+
+const ibmPlexMono = IBM_Plex_Mono({
+    subsets: ["latin"],
+    weight: ["400", "700"],
+    style: ["normal", "italic"],
+    display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+    subsets: ["latin"],
+    weight: ["400"],
+    style: ["italic"],
+    display: "swap",
+});
+
 export default function Contact() {
   const [error, setError] = React.useState<string | null>(null)
   const [formState, setFormState] = React.useState({ name: "", email: "", message: "" })
@@ -41,7 +57,7 @@ export default function Contact() {
 
       <div className="container max-w-5xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight inline-block bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+          <h2 className="text-xl md:text-5xl font-extrabold tracking-tight inline-block bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
             {"<contact-me>"}
           </h2>
           <div className="w-12 h-1 bg-primary mx-auto mt-4 rounded-full" />
@@ -55,7 +71,7 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
             className="md:col-span-5 space-y-6"
           >
-            <h3 className="text-2xl font-bold text-white">Let's talk</h3>
+            <h3 className={`${instrumentSerif.className} mb-5 text-5xl font-bold text-white`}>Let's talk</h3>
             <p className="text-sm text-muted-foreground/90 leading-relaxed font-medium">
               Always in for new opportunities and collaborations. Feel free to drop a message, and I'll ping you back as soon as possible.
             </p>
@@ -65,8 +81,8 @@ export default function Contact() {
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">Email Me</p>
-                  <a href={`mailto:${portfolioData.email}`} className="text-sm font-bold text-white hover:text-primary transition-colors">
+                  <p className="mb-1 text-xs text-muted-foreground font-semibold uppercase tracking-wider">Email Me</p>
+                  <a href={`mailto:${portfolioData.email}`} className={`${instrumentSerif.className} mb-2 text-md font-bold text-white hover:text-primary transition-colors`}>
                     {portfolioData.email}
                   </a>
                 </div>
@@ -76,8 +92,8 @@ export default function Contact() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">Location</p>
-                  <p className="text-sm font-bold text-white">Hyderabad, Telangana, India <br />Jaipur, Rajasthan, India</p>
+                  <p className="mb-2 text-xs text-muted-foreground font-semibold uppercase tracking-wider">Location</p>
+                  <p className={`${instrumentSerif.className} mb-2 text-sm font-bold text-white`}>Hyderabad, Telangana, India <br />Jaipur, Rajasthan, India</p>
                 </div>
               </div>
             </div>
@@ -225,16 +241,16 @@ export default function Contact() {
                         gap-2
                         rounded-xl
                         border
-                        border-emerald-500/20
-                        bg-emerald-500/10
+                        border-slate-500/20
+                        bg-slate-500/10
                         p-3
                         text-sm
                         font-medium
-                        text-emerald-400
+                        text-slate-400
                       "
                     >
                       <CheckCircle2 className="h-5 w-5 shrink-0" />
-                      <span>Message sent successfully. I'll get back to you soon.</span>
+                      <span>Received! I'll get back to you soon.</span>
                     </motion.div>
                   )}
                 </form>

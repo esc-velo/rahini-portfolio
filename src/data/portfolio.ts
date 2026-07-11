@@ -10,8 +10,6 @@ export interface Project {
 }
 export interface Skill {
   name: string
-  summary: string
-  projectIds?: Project["id"][]
   status: "Core" | "Comfortable" | "Learning";
 }
 export interface Experience {
@@ -62,33 +60,33 @@ export const portfolioData: PortfolioData = {
   resume: "/resume.pdf",
   aboutCards: [
   {
-    title: "Hi, I'm Rahini",
+    title: "Hi! I'm Rahini",
     description:
       "A Computer Science student passionate about building AI-powered software, automation workflows, and thoughtful digital experiences.",
     image: "/images/about/me.jpeg",
   },
   {
-    title: "Hyderabad Roots",
+    title: "Native",
     description:
-      "Originally from Hyderabad, a city that sparked my curiosity for technology while keeping me grounded in culture.",
+      "Originally from Hyderabad",
     image: "/images/about/hyd.jpeg",
   },
   {
     title: "Currently @ MUJ",
     description:
-      "Pursuing Computer Science at Manipal University Jaipur while exploring AI, full-stack development, and systems engineering.",
+      "Pursuing CS @ MUJ while exploring AI, full-stack development, and systems engineering.",
     image: "/images/about/muj.jpeg",
   },
   {
     title: "Dean's List",
     description:
-      "Two-time Dean's List Awardee, reflecting consistent academic performance alongside projects and extracurriculars.",
+      "2x Dean's List Awardee, demonstrates consistency in academics alongside projects and extra-curriculars.",
     image: "/images/about/deans.jpeg",
   },
   {
     title: "Hackathons",
     description:
-      "Three-time hackathon finalist. I enjoy transforming ideas into working prototypes under tight deadlines.",
+      "3x hackathon finalist. I enjoy vibecoding ideas into working prototypes under tight deadlines.",
     image: "/images/about/hackathon.jpeg",
   },
   {
@@ -100,54 +98,61 @@ export const portfolioData: PortfolioData = {
   {
     title: "Beyond Code",
     description:
-      "I'm also a trained classical dancer. It has taught me discipline, patience, and attention to detail that carry into engineering.",
+      "I'm also training in Kuchipudi, has taught me discipline, patience, and attention to detail.",
     image: "/images/about/dance.jpeg",
   },
   {
-    title: "Creative Side",
+    title: "Creative End",
     description:
       "Sketching and design help me think visually, influencing how I approach interfaces, layouts, and user experience.",
     image: "/images/about/sketch.jpeg",
   },
 ],
   skills: [
+      {
+    title: "Languages",
+    description: "",
+    skills: [
+      {
+        name: "Python",
+        status: "Core",
+      },
+      {
+        name: "Java",
+        status: "Comfortable",
+      },
+      {
+        name: "C",
+        status: "Comfortable",
+      },
+      {
+        name: "JavaScript (ES6+)",
+        status: "Core",
+      },
+    ],
+  },
   {
     title: "Frontend",
     description: "Crafting responsive, interactive interfaces with a focus on performance, accessibility, and polished user experiences.",
     skills: [
       {
         name: "React",
-        summary:
-          "Building interactive component-based user interfaces with reusable architecture.",
-        projectIds: ["rentman"],
         status: "Comfortable",
       },
       {
         name: "Next.js",
-        summary:
-          "My primary framework for building modern web applications with App Router and TypeScript.",
-        projectIds: ["notifymail"],
         status: "Core",
       },
       {
         name: "Tailwind CSS",
-        summary:
-          "Creating responsive interfaces with utility-first styling and custom design systems.",
-        projectIds: ["rentman", "notifymail"],
         status: "Core",
       },
       {
         name: "Framer Motion",
-        summary:
-          "Adding polished interactions and smooth animations to improve user experience.",
-        projectIds: ["notifymail"],
         status: "Comfortable",
       },
       {
         name: "TypeScript",
-        summary:
-          "Developing type-safe frontend applications with maintainable component architecture.",
-        projectIds: ["rentman", "notifymail"],
         status: "Core",
       },
     ],
@@ -159,37 +164,26 @@ export const portfolioData: PortfolioData = {
     skills: [
       {
         name: "Node.js",
-        summary:
-          "Building backend services and REST APIs using the JavaScript ecosystem.",
-        projectIds: ["rentman", "notifymail"],
         status: "Core",
       },
       {
         name: "Express.js",
-        summary:
-          "Developing RESTful APIs with structured routing and middleware.",
-        projectIds: ["rentman"],
         status: "Core",
       },
       {
         name: "FastAPI",
-        summary:
-          "Building lightweight Python APIs for machine learning and automation workflows.",
-        projectIds: ["goalcast", "sleep-stage"],
+        status: "Comfortable",
+      },
+      {
+        name: "Postman",
         status: "Comfortable",
       },
       {
         name: "PostgreSQL",
-        summary:
-          "Working with relational databases for production applications and persistent storage.",
-        projectIds: ["notifymail"],
         status: "Comfortable",
       },
       {
         name: "MySQL",
-        summary:
-          "Designing normalized relational databases and writing efficient SQL queries.",
-        projectIds: ["rentman"],
         status: "Core",
       },
     ],
@@ -201,36 +195,22 @@ export const portfolioData: PortfolioData = {
     skills: [
       {
         name: "Python",
-        summary:
-          "My primary language for machine learning, automation, backend scripting, and data analysis.",
-        projectIds: ["goalcast", "sleep-stage", "notifymail"],
         status: "Core",
       },
       {
         name: "NumPy",
-        summary:
-          "Performing numerical computation and efficient array operations for ML pipelines.",
-        projectIds: ["goalcast", "sleep-stage"],
         status: "Core",
       },
       {
         name: "Pandas",
-        summary:
-          "Cleaning, transforming, and analyzing structured datasets for machine learning.",
-        projectIds: ["goalcast", "sleep-stage"],
         status: "Core",
       },
       {
         name: "Scikit-learn",
-        summary:
-          "Training, evaluating, and optimizing classical machine learning models.",
-        projectIds: ["goalcast", "sleep-stage"],
         status: "Core",
       },
       {
         name: "PyTorch",
-        summary:
-          "Exploring deep learning workflows and neural network development.",
         status: "Learning",
       },
     ],
@@ -242,35 +222,40 @@ export const portfolioData: PortfolioData = {
     skills: [
       {
         name: "Git",
-        summary:
-          "Using version control for collaborative development and project management.",
-        projectIds: ["goalcast", "rentman", "notifymail"],
         status: "Core",
       },
       {
         name: "Docker",
-        summary:
-          "Containerizing applications for reproducible development and deployment.",
-        projectIds: ["notifymail"],
         status: "Learning",
       },
       {
         name: "GitHub",
-        summary:
-          "Managing repositories, pull requests, and collaborative software development.",
-        projectIds: [
-          "goalcast",
-          "rentman",
-          "notifymail",
-          "sleep-stage",
-        ],
         status: "Core",
       },
       {
         name: "n8n",
-        summary:
-          "Designing AI-powered automation workflows integrating APIs and external services.",
-        projectIds: ["notifymail"],
+        status: "Core",
+      },
+      {
+        name: "LangChain",
+        status: "Learning",
+      },
+      {
+        name: "LangGraph",
+        status: "Learning",
+      },
+    ],
+  },
+  {
+    title: "Deployment",
+    description: "Automating workflows, streamlining development, and deploying production-ready applications with modern tooling.",
+    skills: [
+      {
+        name: "Vercel",
+        status: "Core",
+      },
+      {
+        name: "Render",
         status: "Core",
       },
     ],

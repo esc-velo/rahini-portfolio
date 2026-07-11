@@ -40,7 +40,6 @@ export default function SkillsCategory({
 
   return (
     <motion.div
-      layout
       tabIndex={0}
       role="button"
       aria-expanded={active}
@@ -67,7 +66,6 @@ export default function SkillsCategory({
       >
         <div className="px-8 py-7">
           <motion.h3
-            layout
             className={cn(
               "text-2xl font-semibold tracking-tight transition-colors duration-200",
               active ? "text-white" : "text-slate opacity-90"
@@ -93,7 +91,6 @@ export default function SkillsCategory({
           <AnimatePresence initial={false}>
             {active && (
               <motion.div
-                layout
                 key="expanded"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 0.2, delay: 0.2 } }}

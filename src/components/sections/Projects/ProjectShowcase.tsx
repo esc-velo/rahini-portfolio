@@ -13,7 +13,7 @@ type Props = {
 export default function ProjectShowcase({ project }: Props) {
   return (
     <motion.div
-      className="relative flex items-center justify-center w-full"
+      className="flex items-center md:col-span-7 lg:col-span-7 w-full h-[700px]"
       animate={{ y: [0, -4, 0] }}
       transition={{
         duration: 7,
@@ -31,7 +31,7 @@ export default function ProjectShowcase({ project }: Props) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -15 }}
           transition={{ duration: 0.3 }}
-          className="relative w-full"
+          className="absolute inset-0 flex"
         >
           <Card className="overflow-hidden rounded-3xl border border-border/60 bg-background/70 backdrop-blur-xl shadow-2xl">
 

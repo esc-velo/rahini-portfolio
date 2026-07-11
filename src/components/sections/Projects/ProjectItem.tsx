@@ -3,6 +3,7 @@
 import type { Project } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
 import TextStagger from "./TextStagger";
+import { useRef } from "react";
 
 type ProjectItemProps = {
   project: Project;
@@ -17,12 +18,23 @@ export default function ProjectItem({
   isActive,
   onActivate,
 }: ProjectItemProps) {
+  const timeout = useRef<NodeJS.Timeout | null>(null);
+
+  const handleEnter = () => {
+      timeout.current = setTimeout(onActivate,100);
+  };
+
+  const handleLeave = () => {
+      if(timeout.current)
+          clearTimeout(timeout.current);
+  };
   return (
     <button
       type="button"
-      onMouseEnter={onActivate}
-      onFocus={onActivate}
+      onMouseEnter={handleEnter}
+      onFocus={handleEnter}
       onClick={onActivate}
+      onMouseLeave={handleLeave}
       className={cn(
         "group w-full border-l-4 py-6 pl-8 pr-4 text-left transition-all duration-300",
         isActive

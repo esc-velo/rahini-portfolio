@@ -15,7 +15,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 const instrumentSerif = Instrument_Serif({
     subsets: ["latin"],
     weight: ["400"],
-    style: ["italic"], // Specific to the styled intro
+    style: ["italic"],
     display: "swap",
 });
 
@@ -37,7 +37,7 @@ export default function HeroText() {
             </div>
 
             <p className={`${instrumentSerif.className} text-3xl italic tracking-wide text-zinc-400 low-descender mb-3`}>
-                Software developer specializing in web applications.
+                Shiping Full-Stack Products with Integrated AI
             </p>
 
             {/* Consistent button styling - Unified on the clean neo-brutalist look */}

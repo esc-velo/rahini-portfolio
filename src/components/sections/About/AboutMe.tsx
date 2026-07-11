@@ -2,6 +2,21 @@
 import ExpandCards from "@/components/ui/ExpandCards"
 import { motion } from "framer-motion"
 import { portfolioData } from "@/data/portfolio"
+import { IBM_Plex_Mono, Instrument_Serif } from "next/font/google";
+
+const ibmPlexMono = IBM_Plex_Mono({
+    subsets: ["latin"],
+    weight: ["400", "700"],
+    style: ["normal", "italic"],
+    display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+    subsets: ["latin"],
+    weight: ["400"],
+    style: ["italic"],
+    display: "swap",
+});
 
 export default function AboutMe() {
   return (
@@ -15,7 +30,7 @@ export default function AboutMe() {
       <div className="container max-w-8xl mx-auto px-6">
         {/* Section Heading */}
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight inline-block bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+          <h2 className="text-xl md:text-5xl font-extrabold tracking-tight inline-block bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
             {"<about-me>"}
           </h2>
 
@@ -31,14 +46,7 @@ export default function AboutMe() {
           className="flex flex-col items-center text-center"
         >
           <p
-            className="
-              max-w-3xl
-              text-lg
-              leading-9
-              text-muted-foreground/90
-              font-medium
-              select-text
-            "
+            className="max-w-3xl text-xl leading-9 text-muted-foreground/90 font-medium select-text"
           >
             {portfolioData.about}
           </p>
