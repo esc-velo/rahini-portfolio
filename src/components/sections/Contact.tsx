@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Mail, MapPin, Send, CheckCircle2 } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/Card"
 import { Input } from "@/components/ui/Input"
-import { Button } from "@/components/ui/Button"
+import { FlipButton } from "@/components/ui/FlipButton"
 import { sendContactEmail } from "@/app/actions/contact"
 import { portfolioData } from "@/data/portfolio"
 export default function Contact() {
@@ -92,63 +92,149 @@ export default function Contact() {
           >
             <Card className="glass">
               <CardContent className="p-6">
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  {/* Name */}
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-xs font-bold text-slate-300 uppercase tracking-wider">Your Name</label>
-                    <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+                    <label
+                      htmlFor="name"
+                      className="text-xs font-bold uppercase tracking-wider text-slate-300"
+                    >
+                      Your Name
+                    </label>
+
+                    {/* Honeypot */}
+                    <input
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      className="hidden"
+                      aria-hidden="true"
+                    />
+
                     <Input
                       id="name"
                       required
-                      type="text"
                       placeholder="John Doe"
                       value={formState.name}
-                      onChange={e => setFormState({ ...formState, name: e.target.value })}
+                      onChange={(e) =>
+                        setFormState((prev) => ({
+                          ...prev,
+                          name: e.target.value,
+                        }))
+                      }
                     />
                   </div>
+
+                  {/* Email */}
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-xs font-bold text-slate-300 uppercase tracking-wider">Your Email</label>
+                    <label
+                      htmlFor="email"
+                      className="text-xs font-bold uppercase tracking-wider text-slate-300"
+                    >
+                      Your Email
+                    </label>
+
                     <Input
                       id="email"
-                      required
                       type="email"
+                      required
                       placeholder="john@example.com"
                       value={formState.email}
-                      onChange={e => setFormState({ ...formState, email: e.target.value })}
+                      onChange={(e) =>
+                        setFormState((prev) => ({
+                          ...prev,
+                          email: e.target.value,
+                        }))
+                      }
                     />
                   </div>
+
+                  {/* Message */}
                   <div className="space-y-2">
-                    <label htmlFor="message" className="text-xs font-bold text-slate-300 uppercase tracking-wider">Your Message</label>
+                    <label
+                      htmlFor="message"
+                      className="text-xs font-bold uppercase tracking-wider text-slate-300"
+                    >
+                      Your Message
+                    </label>
+
                     <textarea
                       id="message"
                       required
                       rows={5}
                       placeholder="Write your message here..."
-                      className="flex w-full rounded-xl border border-border bg-white/5 px-4 py-3 text-sm ring-offset-background placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary/50 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-300 resize-none"
+                      className="
+                        flex
+                        w-full
+                        rounded-xl
+                        border
+                        border-border
+                        bg-white/5
+                        px-4
+                        py-3
+                        text-sm
+                        placeholder:text-muted-foreground/60
+                        transition-all
+                        duration-300
+                        resize-none
+                        focus-visible:outline-none
+                        focus-visible:ring-2
+                        focus-visible:ring-primary/50
+                        focus-visible:border-primary/50
+                      "
                       value={formState.message}
-                      onChange={e => setFormState({ ...formState, message: e.target.value })}
+                      onChange={(e) =>
+                        setFormState((prev) => ({
+                          ...prev,
+                          message: e.target.value,
+                        }))
+                      }
                     />
                   </div>
-                  <Button type="submit" disabled={isPending} className="w-full">
-                    {isPending ? (
-                      <span className="flex items-center gap-2">
-                        Sending...
-                        <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                      </span>
-                    ) : (
-                      <span className="flex items-center gap-2">
-                        Send Message
-                        <Send className="w-4 h-4" />
-                      </span>
-                    )}
-                  </Button>
+
+                  {/* Error */}
+                  {error && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="rounded-xl border border-red-500/20 bg-red-500/10 p-3 text-sm text-red-400"
+                    >
+                      {error}
+                    </motion.div>
+                  )}
+
+                  {/* Submit */}
+                  <div className="flex justify-center pt-2">
+                    <FlipButton
+                      type="submit"
+                      isPending={isPending}
+                      idleText="Sending..."
+                      loadingText="Send Message"
+                    />
+                  </div>
+
+                  {/* Success */}
                   {isSuccess && (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="flex items-center gap-2 text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 p-3 rounded-xl text-sm font-semibold"
+                      className="
+                        flex
+                        items-center
+                        gap-2
+                        rounded-xl
+                        border
+                        border-emerald-500/20
+                        bg-emerald-500/10
+                        p-3
+                        text-sm
+                        font-medium
+                        text-emerald-400
+                      "
                     >
-                      <CheckCircle2 className="w-5 h-5 shrink-0" />
-                      <span>Thank you! Your message was sent successfully.</span>
+                      <CheckCircle2 className="h-5 w-5 shrink-0" />
+                      <span>Message sent successfully. I'll get back to you soon.</span>
                     </motion.div>
                   )}
                 </form>

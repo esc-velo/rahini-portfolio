@@ -27,7 +27,7 @@ export default function HeroText() {
     };
 
     return (
-        <div className="w-full flex flex-col items-center text-center px-4">
+        <div className="w-full flex flex-col items-start text-left px-4">
             <p className={`${instrumentSerif.className} text-3xl italic tracking-wide text-zinc-400 low-descender mb-2`}>
                 Hi, I'm
             </p>

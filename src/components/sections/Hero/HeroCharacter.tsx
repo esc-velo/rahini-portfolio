@@ -9,7 +9,7 @@ export default function HeroCharacter() {
       playsInline
       preload="auto"
       className="
-        h-[420px]
+        h-[600px]
         w-auto
         object-contain
         pointer-events-none
