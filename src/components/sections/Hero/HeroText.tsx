@@ -37,7 +37,7 @@ export default function HeroText() {
             </div>
 
             <p className={`${instrumentSerif.className} text-3xl italic tracking-wide text-zinc-400 low-descender mb-3`}>
-                Shiping Full-Stack Products with Integrated AI
+                Shipping Full-Stack Products with Integrated AI
             </p>
 
             {/* Consistent button styling - Unified on the clean neo-brutalist look */}
