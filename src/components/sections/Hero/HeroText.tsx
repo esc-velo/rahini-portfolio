@@ -66,7 +66,7 @@ export default function HeroText() {
                     View Projects
                 </Button>
 
-                <Button 
+                <Button
                     shine
                     variant="outline"
                     onClick={() => {
