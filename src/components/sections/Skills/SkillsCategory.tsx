@@ -13,6 +13,7 @@ interface SkillsCategoryProps {
   active: boolean;
   onActivate: () => void;
   onDeactivate: () => void;
+  onToggle?: () => void;
 }
 
 const HOVER_DELAY = 150;
@@ -22,6 +23,7 @@ export default function SkillsCategory({
   active,
   onActivate,
   onDeactivate,
+  onToggle,
 }: SkillsCategoryProps) {
   const hoverTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -52,7 +54,14 @@ export default function SkillsCategory({
       transition={{ layout: { duration: 0.3, ease: "easeInOut" } }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={onActivate}
+      onClick={(e) => {
+        if (hoverTimeout.current) {
+          clearTimeout(hoverTimeout.current);
+          hoverTimeout.current = null;
+        }
+        if (onToggle) onToggle();
+        else onActivate();
+      }}
       onBlur={onDeactivate}
       onFocus={onActivate}
     >

@@ -8,6 +8,8 @@ export default function Hero() {
             className="
                 mx-auto
                 flex
+                flex-col
+                lg:flex-row
                 w-full
                 max-w-7xl
                 items-center
@@ -20,7 +22,7 @@ export default function Hero() {
                 <HeroText />
             </div>
 
-            <div className="hidden lg:flex flex-1 justify-end">
+            <div className="flex flex-1 justify-center lg:justify-end w-full mt-8 lg:mt-0">
                 <HeroCharacter />
             </div>
         </div>
