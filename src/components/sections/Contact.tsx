@@ -57,7 +57,7 @@ export default function Contact() {
 
       <div className="container max-w-5xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-xl md:text-5xl font-extrabold tracking-tight inline-block bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight inline-block bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
             {"<contact-me>"}
           </h2>
           <div className="w-12 h-1 bg-primary mx-auto mt-4 rounded-full" />

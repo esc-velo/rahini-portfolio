@@ -31,7 +31,7 @@ export default function AboutMe() {
       <div className="container max-w-8xl mx-auto px-6">
         {/* Section Heading */}
         <div className="text-center mb-8">
-          <h2 className="text-xl md:text-5xl font-extrabold tracking-tight inline-block bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight inline-block bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
             {"<about-me>"}
           </h2>
 
