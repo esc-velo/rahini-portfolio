@@ -5,6 +5,7 @@ import type { Transition } from "framer-motion";
 import React, {
   forwardRef,
   useCallback,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -24,7 +25,7 @@ import { cn } from "@/lib/utils"
 import { Button, ButtonProps } from "@/components/ui/Button"
 
 
-const DRAG_CONSTRAINTS = { left: 0, right: 289 }
+const DRAG_FALLBACK_RIGHT = 289
 const DRAG_THRESHOLD = 0.9
 
 const BUTTON_STATES = {
@@ -100,13 +101,30 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
     const [isDragging, setIsDragging] = useState(false)
     const [completed, setCompleted] = useState(false)
     const dragHandleRef = useRef<HTMLDivElement | null>(null)
+    const trackRef = useRef<HTMLDivElement | null>(null)
+    const [maxDrag, setMaxDrag] = useState(DRAG_FALLBACK_RIGHT)
     const { status, handleSubmit } = useButtonStatus("success")
 
+    // Measure actual track width for dynamic drag constraints
+    useEffect(() => {
+      const measure = () => {
+        if (trackRef.current) {
+          // track width minus handle (40px) minus left padding (4px) minus right padding (4px)
+          const trackWidth = trackRef.current.offsetWidth
+          setMaxDrag(Math.max(0, trackWidth - 48))
+        }
+      }
+      measure()
+      window.addEventListener('resize', measure)
+      return () => window.removeEventListener('resize', measure)
+    }, [])
+
+    const dragConstraints = useMemo(() => ({ left: 0, right: maxDrag }), [maxDrag])
     const dragX = useMotionValue(0)
     const springX = useSpring(dragX, ANIMATION_CONFIG.spring)
     const dragProgress = useTransform(
       springX,
-      [0, DRAG_CONSTRAINTS.right],
+      [0, maxDrag],
       [0, 1]
     )
 
@@ -134,7 +152,7 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
       info: PanInfo
     ) => {
       if (completed) return
-      const newX = Math.max(0, Math.min(info.offset.x, DRAG_CONSTRAINTS.right))
+      const newX = Math.max(0, Math.min(info.offset.x, maxDrag))
       dragX.set(newX)
     }
 
@@ -142,6 +160,7 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
 
     return (
       <motion.div
+        ref={trackRef}
         animate={completed ? BUTTON_STATES.completed : BUTTON_STATES.initial}
         transition={ANIMATION_CONFIG.spring}
         /* Fixed track layout: h-12 w-full max-w-xs or custom width */
@@ -161,7 +180,7 @@ const SlideButton = forwardRef<HTMLButtonElement, SlideButtonProps>(
             <motion.div
               ref={dragHandleRef}
               drag="x"
-              dragConstraints={DRAG_CONSTRAINTS}
+              dragConstraints={dragConstraints}
               dragElastic={0.05}
               dragMomentum={false}
               onDragStart={handleDragStart}

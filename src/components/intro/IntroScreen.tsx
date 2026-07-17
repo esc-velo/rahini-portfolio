@@ -16,7 +16,9 @@ export default function IntroScreen({ onComplete }: IntroScreenProps) {
       <Card
         className="
           relative
-          w-[420px]
+          w-full
+          max-w-[420px]
+          mx-4
           rounded-[32px]
           bg-gradient-to-br from-white/[0.07] to-white/[0.01]
           backdrop-blur-xl

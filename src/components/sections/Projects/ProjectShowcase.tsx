@@ -13,7 +13,7 @@ type Props = {
 export default function ProjectShowcase({ project }: Props) {
   return (
     <motion.div
-      className="flex items-center md:col-span-7 lg:col-span-7 w-full h-[700px]"
+      className="flex items-center md:col-span-7 lg:col-span-7 w-full h-auto lg:h-[700px] relative"
       animate={{ y: [0, -4, 0] }}
       transition={{
         duration: 7,
@@ -22,7 +22,7 @@ export default function ProjectShowcase({ project }: Props) {
       }}
     >
       {/* Ambient glow */}
-      <div className="absolute h-80 w-80 rounded-full bg-primary/10 blur-[100px]" />
+      <div className="absolute h-80 w-80 rounded-full bg-primary/10 blur-[100px] hidden lg:block" />
 
       <AnimatePresence mode="wait">
         <motion.div
@@ -31,14 +31,14 @@ export default function ProjectShowcase({ project }: Props) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -15 }}
           transition={{ duration: 0.3 }}
-          className="absolute inset-0 flex"
+          className="relative lg:absolute lg:inset-0 flex w-full"
         >
-          <Card className="overflow-hidden rounded-3xl border border-border/60 bg-background/70 backdrop-blur-xl shadow-2xl">
+          <Card className="overflow-hidden rounded-3xl border border-border/60 bg-background/70 backdrop-blur-xl shadow-2xl w-full">
 
-            <CardContent className="p-8 space-y-8">
+            <CardContent className="p-6 md:p-8 space-y-6 md:space-y-8">
 
               {/* Preview */}
-              <div className="relative h-40 rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 to-transparent overflow-hidden">
+              <div className="relative h-32 sm:h-40 rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/5 to-transparent overflow-hidden">
 
                 {/* The Image */}
                 <img
@@ -56,18 +56,18 @@ export default function ProjectShowcase({ project }: Props) {
               {/* Heading */}
 
               <div>
-                <h2 className="text-3xl font-black tracking-tight">
+                <h2 className="text-2xl md:text-3xl font-black tracking-tight">
                   {project.title}
                 </h2>
 
-                <p className="mt-2 text-muted-foreground">
+                <p className="mt-2 text-sm md:text-base text-muted-foreground">
                   {project.subtitle}
                 </p>
               </div>
 
               {/* Description */}
 
-              <p className="leading-8 text-muted-foreground">
+              <p className="leading-7 md:leading-8 text-sm md:text-base text-muted-foreground">
                 {project.description}
               </p>
 
@@ -82,7 +82,7 @@ export default function ProjectShowcase({ project }: Props) {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-full border px-3 py-1.5 text-sm transition hover:border-primary"
+                      className="rounded-full border px-3 py-1.5 text-xs sm:text-sm transition hover:border-primary"
                     >
                       {tech}
                     </span>
@@ -99,7 +99,7 @@ export default function ProjectShowcase({ project }: Props) {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl border px-4 py-2 transition hover:border-primary"
+                    className="inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm transition hover:border-primary"
                   >
                     <Code2 className="h-4 w-4" />
                     GitHub
@@ -111,7 +111,7 @@ export default function ProjectShowcase({ project }: Props) {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-primary-foreground transition hover:scale-[1.02]"
+                    className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm text-primary-foreground transition hover:scale-[1.02]"
                   >
                     Live Demo
                     <ArrowUpRight className="h-4 w-4" />

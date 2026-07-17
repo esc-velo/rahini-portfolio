@@ -148,7 +148,7 @@ const SocialDock: React.FC<{ className?: string }> = ({ className = '' }) => {
     return (
         <div
             ref={dockRef}
-            className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 backdrop-blur-[7px] transition-[opacity,transform] duration-500
+            className={`hidden md:block fixed bottom-[calc(env(safe-area-inset-bottom,0px)+1rem)] sm:bottom-6 left-1/2 -translate-x-1/2 z-50 backdrop-blur-[7px] transition-[opacity,transform] duration-500
 ${visible
     ? "opacity-100 translate-y-0 pointer-events-auto"
     : "opacity-0 translate-y-6 pointer-events-none"

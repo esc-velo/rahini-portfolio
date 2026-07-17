@@ -28,6 +28,7 @@ const [activeCategory, setActiveCategory] = useState<string | null>(null);
             active={activeCategory === category.title}
             onActivate={() => setActiveCategory(category.title)}
             onDeactivate={() => setActiveCategory(null)}
+            onToggle={() => setActiveCategory(activeCategory === category.title ? null : category.title)}
           />
         ))}
       </div>
