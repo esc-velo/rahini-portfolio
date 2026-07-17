@@ -3,7 +3,7 @@ import HeroCharacter from "./HeroCharacter";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center px-4 md:px-8">
+    <section className="min-h-[85svh] lg:min-h-screen flex items-center px-4 md:px-8 py-12 lg:py-0">
         <div
             className="
                 mx-auto
@@ -22,7 +22,7 @@ export default function Hero() {
                 <HeroText />
             </div>
 
-            <div className="flex flex-1 justify-center lg:justify-end w-full mt-8 lg:mt-0">
+            <div className="hidden lg:flex flex-1 justify-end w-full">
                 <HeroCharacter />
             </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import AsciiName from "./AsciiName";
+import HeroCharacter from "./HeroCharacter";
 import { portfolioData } from "@/data/portfolio";
 import { Button } from "@/components/ui/Button";
 import { IBM_Plex_Mono, Instrument_Serif } from "next/font/google";
@@ -36,8 +37,13 @@ export default function HeroText() {
                 <AsciiName />
             </div>
 
+            {/* Mobile Character Injection */}
+            <div className="flex lg:hidden w-full justify-center -mt-4 mb-2">
+                 <HeroCharacter />
+            </div>
+
             <p className={`${instrumentSerif.className} text-lg sm:text-xl md:text-3xl italic tracking-wide text-zinc-400 low-descender mb-3`}>
-                Shipping Full-Stack Products with Integrated AI
+                Shipping Full-Stack Products <br className="md:hidden" /> with Integrated AI
             </p>
 
             {/* Consistent button styling - Unified on the clean neo-brutalist look */}
@@ -49,8 +55,8 @@ export default function HeroText() {
                         rounded-lg
                         bg-white
                         text-black
-                        px-7
-                        py-6
+                        px-5 md:px-7
+                        py-4 md:py-6
                         border-2
                         border-black
                         shadow-[4px_4px_0px_0px_rgba(255,255,255,0.25)]
@@ -81,8 +87,8 @@ export default function HeroText() {
                         border-zinc-700 
                         bg-transparent 
                         text-zinc-300
-                        px-7 
-                        py-6 
+                        px-5 md:px-7 
+                        py-4 md:py-6 
                         transition-all 
                         hover:border-zinc-400 
                         hover:text-white

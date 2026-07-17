@@ -25,6 +25,7 @@ export default function AboutMe() {
       className="relative py-28 bg-white/[0.01] min-h-screen flex flex-col justify-center"
     >
     <div className="absolute inset-x-0 top-0 h-px bg-white/8" />
+    <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#0b0c10] to-transparent pointer-events-none" />
     <div className="absolute inset-x-0 bottom-0 h-px bg-white/8" />
 
       <div className="container max-w-8xl mx-auto px-6">
