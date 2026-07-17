@@ -47,7 +47,7 @@ export default function HeroText() {
             </p>
 
             {/* Consistent button styling - Unified on the clean neo-brutalist look */}
-            <div className="mt-10 flex flex-col sm:flex-row gap-4 items-center">
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start w-full">
                 <Button
                     shine
                     onClick={() => scrollTo("projects")}

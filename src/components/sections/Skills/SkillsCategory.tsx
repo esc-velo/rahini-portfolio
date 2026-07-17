@@ -48,7 +48,8 @@ export default function SkillsCategory({
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
-          onActivate();
+          if (onToggle) onToggle();
+          else onActivate();
         }
       }}
       transition={{ layout: { duration: 0.3, ease: "easeInOut" } }}
@@ -63,7 +64,6 @@ export default function SkillsCategory({
         else onActivate();
       }}
       onBlur={onDeactivate}
-      onFocus={onActivate}
     >
       <Card
         className={cn(
