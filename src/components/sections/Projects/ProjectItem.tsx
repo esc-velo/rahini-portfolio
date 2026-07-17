@@ -56,7 +56,7 @@ export default function ProjectItem({
         {/* Title */}
         <h3
           className={cn(
-            "text-3xl font-extrabold tracking-tight uppercase transition-colors",
+            "text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight uppercase transition-colors",
             isActive
               ? "text-foreground"
               : "text-muted-foreground/50 group-hover:text-foreground/80"

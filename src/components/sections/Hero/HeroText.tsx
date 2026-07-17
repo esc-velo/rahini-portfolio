@@ -28,7 +28,7 @@ export default function HeroText() {
 
     return (
         <div className="w-full flex flex-col items-start text-left px-4">
-            <p className={`${instrumentSerif.className} text-3xl italic tracking-wide text-zinc-400 low-descender mb-2`}>
+            <p className={`${instrumentSerif.className} text-xl sm:text-2xl md:text-3xl italic tracking-wide text-zinc-400 low-descender mb-2`}>
                 Hi, I'm
             </p>
 
@@ -36,7 +36,7 @@ export default function HeroText() {
                 <AsciiName />
             </div>
 
-            <p className={`${instrumentSerif.className} text-3xl italic tracking-wide text-zinc-400 low-descender mb-3`}>
+            <p className={`${instrumentSerif.className} text-lg sm:text-xl md:text-3xl italic tracking-wide text-zinc-400 low-descender mb-3`}>
                 Shipping Full-Stack Products with Integrated AI
             </p>
 

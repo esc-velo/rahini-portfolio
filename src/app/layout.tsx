@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   title: "Rahini Raneru | AI & Full-Stack Developer",
   description:
     "Portfolio of Rahini Raneru, a Computer Science student building AI systems, machine learning projects, full-stack applications, and intelligent automation workflows.",
+  viewport: "width=device-width, initial-scale=1, viewport-fit=cover",
 }
 
 export default function RootLayout({
